@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manish M | Cybersecurity Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-secondary: #0d1117;
+            --bg-card: #161b22;
+            --accent-green: #00ff88;
+            --accent-cyan: #00d9ff;
+            --accent-purple: #a855f7;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --border-color: #30363d;
+            --gradient-1: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+            --gradient-2: linear-gradient(135deg, #a855f7 0%, #00d9ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridScroll {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Cursor effect */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease-out;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 4rem;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 70vh;
+            margin-bottom: 8rem;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        /* Terminal Display */
+        .terminal {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .terminal-header {
+            background: var(--bg-secondary);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+
+        .terminal-line {
+            display: flex;
+            gap: 1rem;
+            animation: typeIn 0.5s ease-out;
+            animation-fill-mode: backwards;
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0.2s; }
+        .terminal-line:nth-child(2) { animation-delay: 0.4s; }
+        .terminal-line:nth-child(3) { animation-delay: 0.6s; }
+        .terminal-line:nth-child(4) { animation-delay: 0.8s; }
+        .terminal-line:nth-child(5) { animation-delay: 1s; }
+        .terminal-line:nth-child(6) { animation-delay: 1.2s; }
+
+        @keyframes typeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .terminal-prompt {
+            color: var(--accent-green);
+        }
+
+        .terminal-command {
+            color: var(--accent-cyan);
+        }
+
+        .terminal-output {
+            color: var(--text-secondary);
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background: var(--accent-green);
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 8rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 0.8rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-green);
+            transform: translateX(10px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+        }
+
+        .project-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-features li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+        }
+
+        /* Experience */
+        .experience-card {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent-green);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-company {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .experience-description {
+            list-style: none;
+        }
+
+        .experience-description li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-description li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+        }
+
+        /* Education & Certifications */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card .subtitle {
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card .detail {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <div class="container">
+        <nav>
+            <div class="logo">MANISH.M</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero" id="about">
+            <div class="hero-content">
+                <span class="hero-tag">🛡️ Cybersecurity Professional</span>
+                <h1>Defending Digital Assets</h1>
+                <p class="hero-subtitle">
+                    B.Tech IT graduate specializing in <strong style="color: var(--accent-green);">Defensive Operations</strong> and 
+                    <strong style="color: var(--accent-cyan);">Python Automation</strong>. 
+                    Building real-time security monitoring tools and protecting systems through proactive threat detection.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch →</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">manish@ubuntu:~$</span>
+                        <span class="terminal-command">whoami</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-output">Cybersecurity Professional | Python Automation Expert</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">manish@ubuntu:~$</span>
+                        <span class="terminal-command">cat skills.txt</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-output">Log Monitoring • Network Security • OWASP Top 10</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-output">Python • Linux • Security Automation</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">manish@ubuntu:~$</span>
+                        <span class="cursor-blink"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-header">
+                <span class="section-tag">// TECHNICAL ARSENAL</span>
+                <h2 class="section-title">Skills & Expertise</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Security Operations</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Log Monitoring</span>
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">OSI Model</span>
+                        <span class="skill-tag">TCP/IP</span>
+                        <span class="skill-tag">OWASP Top 10</span>
+                        <span class="skill-tag">CIA Triad</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Security Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Ubuntu Linux</span>
+                        <span class="skill-tag">Nmap</span>
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">Burp Suite</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Security Scripting</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">ReactJS</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-header">
+                <span class="section-tag">// SECURITY INITIATIVES</span>
+                <h2 class="section-title">Cybersecurity Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Real-Time SSH Login Monitor</h3>
+                            <p class="project-tech">Python • Linux Logs • Security Automation</p>
+                        </div>
+                        <span class="project-date">Jan 2026</span>
+                    </div>
+                    <p class="project-description">
+                        A sophisticated Python-based monitoring system that provides real-time surveillance of SSH authentication attempts 
+                        by analyzing system logs for suspicious activity patterns.
+                    </p>
+                    <ul class="project-features">
+                        <li>Engineered Python script to monitor auth.log for unauthorized access attempts in real-time</li>
+                        <li>Automated brute-force detection system with intelligent pattern recognition</li>
+                        <li>Significantly decreased manual incident response time through automated alerting</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Network Port Vulnerability Scanner</h3>
+                            <p class="project-tech">Python • Socket Programming • Network Analysis</p>
+                        </div>
+                        <span class="project-date">Jan 2026</span>
+                    </div>
+                    <p class="project-description">
+                        Custom-built network reconnaissance tool leveraging Python's socket library to identify exposed services 
+                        and potential security vulnerabilities across network infrastructure.
+                    </p>
+                    <ul class="project-features">
+                        <li>Built socket-based network discovery tool for comprehensive port scanning</li>
+                        <li>Identifies open ports and potentially vulnerable services</li>
+                        <li>Provides detailed service enumeration and risk assessment</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">CKD Prediction Using AI</h3>
+                            <p class="project-tech">Machine Learning • Python • Healthcare AI</p>
+                        </div>
+                        <span class="project-date">Dec 2023</span>
+                    </div>
+                    <p class="project-description">
+                        Machine learning application demonstrating data analysis and predictive modeling capabilities 
+                        for early-stage detection of Chronic Kidney Disease.
+                    </p>
+                    <ul class="project-features">
+                        <li>Applied Machine Learning algorithms for medical diagnosis prediction</li>
+                        <li>Developed data preprocessing and feature engineering pipeline</li>
+                        <li>Achieved significant accuracy in early-stage disease prediction</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-header">
+                <span class="section-tag">// PROFESSIONAL JOURNEY</span>
+                <h2 class="section-title">Experience</h2>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Web Developer Intern</h3>
+                        <p class="experience-company">Global Quest Technologies • Bangalore, Karnataka</p>
+                    </div>
+                    <span class="experience-date">May 2024 – Oct 2024</span>
+                </div>
+                <ul class="experience-description">
+                    <li>Developed responsive web applications using ReactJS, ensuring cross-browser compatibility</li>
+                    <li>Implemented secure coding practices to reduce frontend vulnerabilities</li>
+                    <li>Collaborated with cross-functional teams to deliver high-quality web solutions</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-header">
+                <span class="section-tag">// ACADEMIC BACKGROUND</span>
+                <h2 class="section-title">Education & Certifications</h2>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>B.Tech in Information Technology</h3>
+                    <p class="subtitle">Coimbatore Institute Of Engineering And Technology</p>
+                    <p class="detail">GPA: 7.68 | 2021 – 2024 | Coimbatore, TN</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Diploma in Computer Engineering</h3>
+                    <p class="subtitle">Institute Of Road Transport College</p>
+                    <p class="detail">Grade: 78% | 2021 | Tirunelveli, TN</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>ISC2 Certified in Cybersecurity (CC)</h3>
+                    <p class="subtitle">Candidate Status</p>
+                    <p class="detail">Industry-recognized cybersecurity certification</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Full Stack Development</h3>
+                    <p class="subtitle">Professional Certification</p>
+                    <p class="detail">Comprehensive web development training</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Selenium Testing</h3>
+                    <p class="subtitle">Professional Certification</p>
+                    <p class="detail">Automated testing framework expertise</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Content Creation - CMTECH</h3>
+                    <p class="subtitle">Personal Interest</p>
+                    <p class="detail">Technical content creation and network labs</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-header">
+                <span class="section-tag">// LET'S CONNECT</span>
+                <h2 class="section-title">Get In Touch</h2>
+            </div>
+
+            <div class="contact-grid">
+                <a href="tel:+917639435661" class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">+91 7639435661</div>
+                </a>
+
+                <a href="mailto:manishtn73@gmail.com" class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">manishtn73@gmail.com</div>
+                </a>
+
+                <a href="https://linkedin.com/in/manishtn73" target="_blank" class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">Connect with me</div>
+                </a>
+
+                <a href="https://github.com/manishtn73" target="_blank" class="contact-item">
+                    <div class="contact-icon">💻</div>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">View my code</div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Manish M. Cybersecurity Professional based in Tirunelveli, Tamil Nadu, India.</p>
+            <p style="margin-top: 0.5rem; color: var(--accent-green);">Protecting digital assets • One line of code at a time</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cursor glow effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
